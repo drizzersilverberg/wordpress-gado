@@ -21,7 +21,7 @@ function hello_world() {
 
 /* add html block for login header */
 add_filter('login_headerurl', 'change_header_url');
-function change_header_url($url){
+function gado_change_header_url($url){
     $url = 'https://blog.drizzersilverberg.com';
     return $url;
 }
@@ -33,3 +33,8 @@ function gado_login_stylesheet(){
     wp_enqueue_style('gado-custom-stylesheet', plugin_dir_url(__FILE__) . 'styles/login-styles.css');
 }
 
+/* returns a custom login error message */
+add_filter('login_errors', 'gado_login_error_message');
+function gado_login_error_message(){
+    return __('Failed the login? You can\'t be serious...');
+}
