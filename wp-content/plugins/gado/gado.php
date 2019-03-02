@@ -11,6 +11,8 @@
 
 /*
  * Login Page Action and Filter Hooks
+ *
+ * file: wp-login.php
  */
 
 /* add html block for login header */
@@ -20,8 +22,8 @@ function hello_world() {
 }
 
 /* add html block for login header */
-add_filter('login_headerurl', 'change_header_url');
-function gado_change_header_url($url){
+add_filter('login_headerurl', 'gado_login_change_header_url');
+function gado_login_change_header_url($url){
     $url = 'https://blog.drizzersilverberg.com';
     return $url;
 }
@@ -37,4 +39,10 @@ function gado_login_stylesheet(){
 add_filter('login_errors', 'gado_login_error_message');
 function gado_login_error_message(){
     return __('Failed the login? You can\'t be serious...');
+}
+
+/* remove login page shake */
+add_action('login_head', 'gado_login_remove_shake');
+function gado_login_remove_shake(){
+    remove_action('login_head', 'wp_shake_js', 12);
 }
