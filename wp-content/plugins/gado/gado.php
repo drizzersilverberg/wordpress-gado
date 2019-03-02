@@ -9,7 +9,20 @@
  * Text Domain: gado
  */
 
+/*
+ * Login Page Action and Filter Hooks
+ */
+
+/* add html block for login header */
 add_action('login_header', 'hello_world'); 
 function hello_world() {
     echo 'Hello world!';
 }
+
+/* add html block for login header */
+add_filter('login_headerurl', 'change_header_url');
+function change_header_url($url){
+    $url = 'https://blog.drizzersilverberg.com';
+    return $url;
+}
+
