@@ -26,3 +26,10 @@ function change_header_url($url){
     return $url;
 }
 
+/* load custom stylesheet on login page */
+add_action('login_enqueue_scripts', 'gado_login_stylesheet');
+function gado_login_stylesheet(){
+    // load stylesheet
+    wp_enqueue_style('gado-custom-stylesheet', plugin_dir_url(__FILE__) . 'styles/login-styles.css');
+}
+
