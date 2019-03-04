@@ -7,3 +7,30 @@
   Template: twentysixteen
   Version: 0.1.0
 */
+
+@import url('../twentysixteen/style.css');
+
+body {
+    background-color: ##233332;
+}
+
+.site-header{
+    background-image: linear-gradient(-90deg, blue, #14144e);
+    /* background-color: #14144e; */
+}
+
+.site-branding .site-title a {
+    color: #d0d8be;
+}
+
+.site-description {
+    color: #a58423;
+}
+
+.site-content {
+    margin-top: 5%;
+}
+
+.entry-title a {
+    color: #bf8730;
+}
