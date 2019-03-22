@@ -74,14 +74,12 @@ function gado_product_metaboxes( $meta_boxes ) {
 				'type' => 'number',
 				'name' => esc_html__( 'Price', 'gado' ),
 				'min' => '1000',
-				'style' => 'margin-top: 5px;',
 			),
 			array(
 				'id' => $prefix . 'stock',
 				'type' => 'number',
 				'name' => esc_html__( 'Stock', 'gado' ),
 				'min' => '1',
-				'style' => 'margin-top: 5px;',
 			),
 		),
 	);
