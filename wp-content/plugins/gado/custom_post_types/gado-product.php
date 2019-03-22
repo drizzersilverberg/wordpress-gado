@@ -57,3 +57,35 @@ function gado_product_custom_post_type()
 	);
 	register_post_type( 'gado-product', $args );
 }
+
+function gado_product_metaboxes( $meta_boxes ) {
+	$prefix = 'gado_product_';
+
+	$meta_boxes[] = array(
+		'id' => 'gado_product_price',
+		'title' => esc_html__( 'Product Details', 'gado' ),
+		'post_types' => array( 'gado-product' ),
+		'context' => 'after_editor',
+		'priority' => 'default',
+		'autosave' => 'false',
+		'fields' => array(
+			array(
+				'id' => $prefix . 'price',
+				'type' => 'number',
+				'name' => esc_html__( 'Price', 'gado' ),
+				'min' => '1000',
+				'style' => 'margin-top: 5px;',
+			),
+			array(
+				'id' => $prefix . 'stock',
+				'type' => 'number',
+				'name' => esc_html__( 'Stock', 'gado' ),
+				'min' => '1',
+				'style' => 'margin-top: 5px;',
+			),
+		),
+	);
+
+	return $meta_boxes;
+}
+add_filter( 'rwmb_meta_boxes', 'gado_product_metaboxes' );
