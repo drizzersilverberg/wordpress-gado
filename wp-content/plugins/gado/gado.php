@@ -14,4 +14,8 @@ if (!defined('ABSPATH')) die;
 
 define( 'GADO__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
+// action and filter hooks for pages
 require_once( GADO__PLUGIN_DIR . 'gado-login-page.php' );
+
+// custom post types
+require_once( GADO__PLUGIN_DIR . 'custom_post_types/gado-product.php' );
